@@ -23,8 +23,31 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="container header-container">
-            <a href="#" class="logo" style="display: flex; align-items: center;">
-                <img src="logo.png" alt="Finwave Forex" style="height: 40px; width: auto; object-fit: contain;">
+            <a href="#" class="logo" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Diagonal bars -->
+                    <rect x="20" y="5" width="16" height="60" rx="8" transform="rotate(45 28 35)" fill="#FFB800"></rect>
+                    <rect x="50" y="35" width="16" height="40" rx="8" transform="rotate(45 58 55)" fill="#FFB800">
+                    </rect>
+                    <!-- Dot -->
+                    <circle cx="70" cy="85" r="9" fill="#FFB800"></circle>
+                </svg>
+                <div
+                    style="display: flex; flex-direction: column; justify-content: center; transform: translateY(2px);">
+                    <div
+                        style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.6rem; font-weight: 800; color: #000; line-height: 1; letter-spacing: -0.5px; display: flex; align-items: center;">
+                        FINW<span style="position: relative; display: inline-block;">A<svg width="12" height="12"
+                                viewBox="0 0 10 10"
+                                style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="5,0 10,10 0,10" fill="#FFB800"></polygon>
+                            </svg></span>VE
+                    </div>
+                    <div
+                        style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 800; color: #000; line-height: 1; text-align: right; letter-spacing: 0.5px; margin-top: 2px;">
+                        FOREX
+                    </div>
+                </div>
             </a>
             <nav class="nav-links">
                 <a href="#rates" class="nav-link">Live Rates</a>
