@@ -637,21 +637,109 @@ ul {
 
 /* Media Queries */
 @media (max-width: 1024px) {
-    .hero-grid, .api-container, .compliance-grid {
+    .hero-grid, .api-layout, .compliance-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
+    }
+    .hero-title {
+        font-size: 3.5rem;
     }
     .bento-grid {
         grid-template-columns: 1fr 1fr;
     }
-    .col-span-2 {
+    .col-span-2, .col-span-3 {
         grid-column: span 1;
     }
+    .network-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
+
 @media (max-width: 768px) {
-    .nav-links, .header-actions { display: none; }
-    .bento-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .brand-col { grid-column: span 2; margin-bottom: 2rem; }
-    .footer-legal { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .header-container {
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    .header-actions {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-desc {
+        font-size: 1rem;
+    }
+    
+    .bento-grid, .network-grid {
+        grid-template-columns: 1fr;
+    }
+    .col-span-2, .col-span-3 {
+        grid-column: span 1 !important;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .brand-col {
+        grid-column: span 1;
+        margin-bottom: 0;
+    }
+    .footer-legal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .data-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .tab-group {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-cta {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
 }
