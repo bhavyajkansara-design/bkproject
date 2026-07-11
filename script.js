@@ -1,104 +1,134 @@
 /**
- * Finwave Forex Services
- * Infrastructure UI Interactions
+ * Finwave Forex Services - Premium Interactions
+ * Powered by GSAP & Lenis
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Initialize Icons
     lucide.createIcons();
 
-    // 2. Initialize Lenis for Smooth Scrolling
+    // 1. Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const loaderProgress = document.getElementById('loader-progress');
+    
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                initScrollAnimations();
+            }, 400);
+        }
+        loaderProgress.style.width = `${progress}%`;
+    }, 100);
+
+    // 3. Smooth Scrolling (Lenis)
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: 'vertical',
-        gestureDirection: 'vertical',
         smooth: true,
     });
-
+    
     function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-
+    
     // Sync GSAP with Lenis
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time)=>{
-        lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time)=>{
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+    }
 
-    // 3. GSAP Scroll Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    const revealUpElements = document.querySelectorAll('.reveal-up');
-    revealUpElements.forEach((el) => {
-        gsap.fromTo(el, 
-            { y: 30, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.8, 
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 90%",
-                    toggleActions: "play none none reverse"
+    // 4. GSAP Scroll Animations
+    function initScrollAnimations() {
+        if (typeof gsap === 'undefined') return;
+        const revealUpElements = document.querySelectorAll('.reveal-up');
+        revealUpElements.forEach((el, index) => {
+            gsap.fromTo(el, 
+                { y: 50, opacity: 0, filter: 'blur(10px)' },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    filter: 'blur(0px)',
+                    duration: 1, 
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
-    });
-
-    const revealLeftElements = document.querySelectorAll('.reveal-left');
-    revealLeftElements.forEach((el) => {
-        gsap.fromTo(el, 
-            { x: -30, opacity: 0 },
-            { 
-                x: 0, 
-                opacity: 1, 
-                duration: 0.8, 
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
+            );
+        });
+        
+        const revealLeftElements = document.querySelectorAll('.reveal-left, .reveal-right');
+        revealLeftElements.forEach((el) => {
+            gsap.fromTo(el, 
+                { opacity: 0, scale: 0.95 },
+                { 
+                    opacity: 1, 
+                    scale: 1,
+                    duration: 1, 
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            }
-        );
+            );
+        });
+    }
+
+    // 5. Sticky Header Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 
-    const revealRightElements = document.querySelectorAll('.reveal-right');
-    revealRightElements.forEach((el) => {
-        gsap.fromTo(el, 
-            { x: 30, opacity: 0 },
-            { 
-                x: 0, 
-                opacity: 1, 
-                duration: 0.8, 
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
+    // 6. 3D Tilt Effect on Cards
+    const cards = document.querySelectorAll('.bento-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
     });
 
-    // 4. Tab Logic for Data Tables & Code Blocks
+    // 7. Tab Logic
     const setupTabs = (containerSelector, btnClass) => {
         const containers = document.querySelectorAll(containerSelector);
         containers.forEach(container => {
             const tabs = container.querySelectorAll(btnClass);
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    // Remove active from all siblings
                     tabs.forEach(t => t.classList.remove('active'));
-                    // Add active to clicked
                     tab.classList.add('active');
-                    
-                    // Specific logic for rates table
                     const targetId = tab.getAttribute('data-target');
                     if (targetId) {
                         const allBodies = document.querySelectorAll('.rates-tbody');
@@ -112,65 +142,36 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-
     setupTabs('.table-controls', '.tab-btn');
     setupTabs('.api-code', '.code-tab');
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                lenis.scrollTo(target, { offset: -80 });
-            }
-        });
-    });
-
-    // 6. Quote Calculator Logic
+    // 8. Quote Calculator Logic
     const quoteInput = document.getElementById('quote-input');
     const quoteOutput = document.getElementById('quote-output');
     const sendCurr = document.getElementById('quote-send-curr');
     const recvCurr = document.getElementById('quote-recv-curr');
     const rateDisplay = document.getElementById('quote-rate');
     
-    // Relative values in USD
     const baseRates = {
-        'USD': 1.0,
-        'EUR': 1.0815,
-        'GBP': 1.2730,
-        'AUD': 0.6540,
-        'CAD': 0.7380,
-        'JPY': 0.0067,
-        'INR': 0.0121,
-        'CHF': 1.1320
+        'USD': 1.0, 'EUR': 1.0815, 'GBP': 1.2730,
+        'AUD': 0.6540, 'CAD': 0.7380, 'JPY': 0.0067,
+        'INR': 0.0121, 'CHF': 1.1320
     };
-
-    let currentRate = baseRates['USD'] / baseRates['EUR'];
-
+    
     const calculateQuote = () => {
         const send = sendCurr.value;
         const recv = recvCurr.value;
-        
-        if (send === recv) {
-            currentRate = 1.0000;
-        } else {
-            const sendBase = baseRates[send] || 1.0;
-            const recvBase = baseRates[recv] || 1.0;
-            currentRate = sendBase / recvBase;
-        }
-        
+        let currentRate = (send === recv) ? 1.0000 : (baseRates[send] || 1.0) / (baseRates[recv] || 1.0);
         rateDisplay.textContent = currentRate.toFixed(4);
         
         const amount = parseFloat(quoteInput.value) || 0;
-        const calculated = amount * currentRate;
-        quoteOutput.textContent = calculated.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        quoteOutput.textContent = (amount * currentRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
 
     if (quoteInput && quoteOutput && sendCurr && recvCurr) {
         quoteInput.addEventListener('input', calculateQuote);
         sendCurr.addEventListener('change', calculateQuote);
         recvCurr.addEventListener('change', calculateQuote);
-        calculateQuote(); // Init
+        calculateQuote();
     }
 });
