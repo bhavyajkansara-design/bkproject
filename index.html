@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -20,14 +20,20 @@
 </head>
 
 <body>
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader-content">
             <i data-lucide="activity" class="text-primary" style="width: 48px; height: 48px;"></i>
-            <div class="loader-bar"><div class="loader-progress" id="loader-progress"></div></div>
+            <div id="loader-percentage"
+                style="font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">
+                0%</div>
+            <div class="loader-bar">
+                <div class="loader-progress" id="loader-progress"></div>
+            </div>
         </div>
     </div>
-    
+
     <!-- Animated Background Orbs -->
     <div class="bg-orbs">
         <div class="orb orb-1"></div>
@@ -50,7 +56,7 @@
                 <div
                     style="display: flex; flex-direction: column; justify-content: center; transform: translateY(2px);">
                     <div
-                        style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.6rem; font-weight: 800; color: #000; line-height: 1; letter-spacing: -0.5px; display: flex; align-items: center;">
+                        style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; display: flex; align-items: center;">
                         FINW<span style="position: relative; display: inline-block;">A<svg width="12" height="12"
                                 viewBox="0 0 10 10"
                                 style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);"
@@ -59,7 +65,7 @@
                             </svg></span>VE
                     </div>
                     <div
-                        style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 800; color: #000; line-height: 1; text-align: right; letter-spacing: 0.5px; margin-top: 2px;">
+                        style="font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 800; color: #A0A0A0; line-height: 1; text-align: right; letter-spacing: 0.5px; margin-top: 2px;">
                         FOREX
                     </div>
                 </div>
@@ -77,6 +83,13 @@
     </header>
 
     <main>
+        <!-- Live Ticker -->
+        <div class="ticker-wrap">
+            <div class="ticker-track" id="ticker-track">
+                <span class="ticker-item"><span class="pair">Loading live FX...</span></span>
+            </div>
+        </div>
+
         <!-- Hero Section -->
         <section class="hero section-border-bottom">
             <div class="container">
@@ -84,14 +97,14 @@
                     <div class="hero-content reveal-up">
                         <div class="hero-badge">
                             <span class="status-dot"></span>
-                            Live Market Hours: Open
+                            Live Market Feed Connected
                         </div>
                         <h1 class="hero-title">
-                            Global Finance, Structured.
+                            Global Finance,<br><span>Structured.</span>
                         </h1>
                         <p class="hero-subtitle">
                             The premier provider for currency exchange, international remittance, and travel cards. Get
-                            bank-beating rates with doorstep delivery and zero hidden margins.
+                            bank-beating rates with zero hidden margins.
                         </p>
                         <div class="hero-cta">
                             <a href="#rates" class="btn btn-primary">Get Live Rates</a>
@@ -105,70 +118,69 @@
                             </div>
                             <div class="metric">
                                 <span class="metric-value">50K+</span>
-                                <span class="metric-label">Happy Clients</span>
+                                <span class="metric-label">Clients</span>
                             </div>
                             <div class="metric">
-                                <span class="metric-value">15+</span>
-                                <span class="metric-label">Years Exp</span>
+                                <span class="metric-value">Zero</span>
+                                <span class="metric-label">Hidden Fees</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="hero-visual reveal-left">
-                        <!-- Structural Quote Box Mockup -->
-                        <div class="terminal-window">
-                            <div class="terminal-header">
-                                <div class="terminal-dots"><span></span><span></span><span></span></div>
-                                <div class="terminal-title">INSTANT QUOTE</div>
+                        <!-- Premium Glass Widget -->
+                        <div class="glass-widget">
+                            <div class="widget-title">
+                                <span>Instant Quote</span>
+                                <i data-lucide="refresh-cw" id="widget-refresh"
+                                    style="cursor:pointer; width:18px; color:#94A3B8;"></i>
                             </div>
-                            <div class="terminal-body" style="padding: 2rem;">
-                                <div class="vban-row"><span class="v-lbl font-mono">YOU SEND</span>
+
+                            <div class="widget-row">
+                                <span class="widget-lbl">YOU SEND</span>
+                                <div class="widget-input-group">
+                                    <input type="text" id="quote-input" class="widget-input" value="100,000"
+                                        inputmode="decimal">
+                                    <select id="quote-send-curr" class="widget-select" disabled
+                                        style="opacity: 0.8; cursor: not-allowed; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 0.75rem;">
+                                        <option value="INR" selected>INR</option>
+                                    </select>
                                 </div>
-                                <div class="vban-row"
-                                    style="border-bottom: 2px solid var(--border-dark); padding-bottom: 1rem; margin-bottom: 1rem; display: flex; align-items: center;">
-                                    <input type="number" id="quote-input" class="v-val font-mono" value="10000"
-                                        style="font-size: 1.5rem; color: #FFF; background: transparent; border: none; outline: none; width: 100%;">
-                                    <select id="quote-send-curr" class="badge"
-                                        style="background: #333; color: #FFF; border: 1px solid #555; margin-left: auto; outline: none; cursor: pointer;">
-                                        <option value="USD">USD</option>
+                            </div>
+
+                            <div class="widget-connector">
+                                <span>Rate: <span id="quote-rate" class="rate-chip">Fetching...</span></span>
+                                <span>Fee: <span style="color:#FFFFFF;">0.00</span></span>
+                            </div>
+
+                            <div class="widget-row" style="border-color: rgba(255, 184, 0, 0.3);">
+                                <span class="widget-lbl" style="color: var(--primary);">YOU RECEIVE</span>
+                                <div class="widget-input-group">
+                                    <input type="text" id="quote-output" class="widget-input"
+                                        style="color: var(--primary);" value="0.00" inputmode="decimal">
+                                    <select id="quote-recv-curr" class="widget-select">
+                                        <option value="USD" selected>USD</option>
                                         <option value="EUR">EUR</option>
                                         <option value="GBP">GBP</option>
                                         <option value="AUD">AUD</option>
                                         <option value="CAD">CAD</option>
-                                        <option value="JPY">JPY</option>
-                                        <option value="INR">INR</option>
+                                        <option value="SGD">SGD</option>
+                                        <option value="AED">AED</option>
                                         <option value="CHF">CHF</option>
+                                        <option value="JPY">JPY</option>
+                                        <option value="NZD">NZD</option>
+                                        <option value="SAR">SAR</option>
+                                        <option value="HKD">HKD</option>
+                                        <option value="THB">THB</option>
+                                        <option value="MYR">MYR</option>
+                                        <option value="CNY">CNY</option>
+                                        <option value="ZAR">ZAR</option>
                                     </select>
                                 </div>
-
-                                <div class="vban-row"><span class="v-lbl font-mono">EXCHANGE
-                                        RATE</span><span id="quote-rate"
-                                        class="v-val font-mono text-primary">0.9245</span></div>
-                                <div class="vban-row"><span class="v-lbl font-mono">OUR FEE</span><span
-                                        class="v-val font-mono" style="color: #FFF;">0.00 USD</span></div>
-
-                                <div class="vban-row" style="margin-top: 1.5rem;"><span
-                                        class="v-lbl font-mono">YOU RECEIVE</span></div>
-                                <div class="vban-row"
-                                    style="border-bottom: 2px solid var(--border-dark); padding-bottom: 1rem; display: flex; align-items: center;">
-                                    <span id="quote-output" class="v-val font-mono"
-                                        style="font-size: 1.5rem; color: var(--primary);">9,245.00</span>
-                                    <select id="quote-recv-curr" class="badge"
-                                        style="background: #333; color: #FFF; border: 1px solid #555; margin-left: auto; outline: none; cursor: pointer;">
-                                        <option value="EUR">EUR</option>
-                                        <option value="GBP">GBP</option>
-                                        <option value="USD">USD</option>
-                                        <option value="AUD">AUD</option>
-                                        <option value="CAD">CAD</option>
-                                        <option value="JPY">JPY</option>
-                                        <option value="INR">INR</option>
-                                        <option value="CHF">CHF</option>
-                                    </select>
-                                </div>
-                                <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;"
-                                    onclick="alert('Quote locked! Registration flow will start here.')">Lock in
-                                    Rate</button>
                             </div>
+
+                            <button class="btn btn-primary widget-submit"
+                                onclick="alert('Locking rate and starting flow...')">Lock in Rate</button>
                         </div>
                     </div>
                 </div>
@@ -207,82 +219,18 @@
                             </tr>
                         </thead>
                         <tbody id="rates-cash" class="rates-tbody">
-                            <tr>
-                                <td class="font-medium">🇺🇸 USD - US Dollar</td>
-                                <td class="font-mono">82.45</td>
-                                <td class="font-mono">83.10</td>
-                                <td><span class="badge badge-success">+0.04%</span></td>
-                                <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇪🇺 EUR - Euro</td>
-                                <td class="font-mono">90.15</td>
-                                <td class="font-mono">91.00</td>
-                                <td><span class="badge badge-success">+0.12%</span></td>
-                                <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇬🇧 GBP - British Pound</td>
-                                <td class="font-mono">104.20</td>
-                                <td class="font-mono">105.50</td>
-                                <td><span class="badge" style="color:var(--danger)">-0.08%</span></td>
-                                <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇦🇺 AUD - Australian Dollar</td>
-                                <td class="font-mono">54.30</td>
-                                <td class="font-mono">55.10</td>
-                                <td><span class="badge badge-success">+0.02%</span></td>
-                                <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇨🇦 CAD - Canadian Dollar</td>
-                                <td class="font-mono">60.85</td>
-                                <td class="font-mono">61.50</td>
-                                <td><span class="badge badge-success">+0.05%</span></td>
-                                <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
-                            </tr>
                         </tbody>
                         <tbody id="rates-travel" class="rates-tbody" style="display: none;">
-                            <tr>
-                                <td class="font-medium">🇺🇸 USD - Multi-Currency Card</td>
-                                <td class="font-mono">82.10</td>
-                                <td class="font-mono">83.25</td>
-                                <td><span class="badge badge-success">+0.01%</span></td>
-                                <td><i data-lucide="credit-card" class="text-primary"></i> Zero Load Fee</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇪🇺 EUR - Multi-Currency Card</td>
-                                <td class="font-mono">89.90</td>
-                                <td class="font-mono">91.20</td>
-                                <td><span class="badge badge-success">+0.05%</span></td>
-                                <td><i data-lucide="credit-card" class="text-primary"></i> Zero Load Fee</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇬🇧 GBP - Multi-Currency Card</td>
-                                <td class="font-mono">103.80</td>
-                                <td class="font-mono">105.70</td>
-                                <td><span class="badge" style="color:var(--danger)">-0.10%</span></td>
-                                <td><i data-lucide="credit-card" class="text-primary"></i> Zero Load Fee</td>
-                            </tr>
                         </tbody>
                         <tbody id="rates-wire" class="rates-tbody" style="display: none;">
-                            <tr>
-                                <td class="font-medium">🇺🇸 USD - University / Supplier</td>
-                                <td class="font-mono">82.30</td>
-                                <td class="font-mono">82.90</td>
-                                <td><span class="badge badge-success">+0.03%</span></td>
-                                <td><i data-lucide="zap" class="text-primary"></i> T+0 Settlement</td>
-                            </tr>
-                            <tr>
-                                <td class="font-medium">🇪🇺 EUR - SEPA Transfer</td>
-                                <td class="font-mono">90.00</td>
-                                <td class="font-mono">90.80</td>
-                                <td><span class="badge badge-success">+0.10%</span></td>
-                                <td><i data-lucide="zap" class="text-primary"></i> Instant SEPA</td>
-                            </tr>
                         </tbody>
                     </table>
+                </div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <button id="see-more-rates-btn" class="btn btn-outline"
+                        style="border-radius: 9999px; padding: 0.5rem 1.5rem; font-size: 0.9rem; font-weight: 500;">
+                        See More <i data-lucide="chevron-down" style="width:16px; height:16px; margin-left:0.5rem;"></i>
+                    </button>
                 </div>
             </div>
         </section>
@@ -582,6 +530,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="#" class="fab-wa" aria-label="Chat on WhatsApp" onclick="alert('Opening WhatsApp...')">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.461 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z" />
+        </svg>
+    </a>
 
     <!-- GSAP & Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
