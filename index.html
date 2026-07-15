@@ -70,14 +70,21 @@
                     </div>
                 </div>
             </a>
-            <nav class="nav-links">
-                <a href="#rates" class="nav-link">Live Rates</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#students" class="nav-link">Student Forex</a>
-                <a href="#services" class="nav-link">Corporate</a>
-            </nav>
-            <div class="header-actions">
-                <a href="#contact" class="btn btn-accent">Book Consultation</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-wrapper" id="nav-wrapper">
+                <nav class="nav-links">
+                    <a href="#rates" class="nav-link">Live Rates</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#students" class="nav-link">Student Forex</a>
+                    <a href="#corporate" class="nav-link">Corporate</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="#contact" class="btn btn-accent">Book Consultation</a>
+                </div>
             </div>
         </div>
     </header>
@@ -444,8 +451,7 @@
                     <div class="bento-card reveal-up">
                         <form
                             onsubmit="event.preventDefault(); alert('Consultation request sent! Our experts will contact you shortly.');">
-                            <div
-                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem;">
+                            <div class="form-grid">
                                 <div>
                                     <label class="lbl" style="display: block; margin-bottom: 0.5rem;">Full Name</label>
                                     <input type="text" class="form-input" placeholder="John Doe" required

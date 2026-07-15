@@ -50,9 +50,42 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.ticker.lagSmoothing(0);
     }
 
+    // 3.5 Mobile Menu Logic
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navWrapper = document.getElementById('nav-wrapper');
+    const mobileNavLinks = document.querySelectorAll('.nav-link');
+    
+    if (menuBtn && navWrapper) {
+        const toggleMenu = () => {
+            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            menuBtn.classList.toggle('active');
+            navWrapper.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navWrapper.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
     // 4. GSAP Advanced Animations (Parallax & Stagger)
     function initScrollAnimations() {
         if (typeof gsap === 'undefined') return;
+
+        // Respect prefers-reduced-motion and improve mobile performance
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || window.innerWidth < 768) {
+            // Reveal everything immediately instead of animating
+            gsap.set('.reveal-up, .reveal-left, .reveal-right, .bento-card', { opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' });
+            return;
+        }
         
         // Parallax reveals for main content
         const revealUpElements = document.querySelectorAll('.reveal-up');
@@ -111,6 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
     }
+
+    // Initialize animations
+    initScrollAnimations();
 
     // 5. Sticky Header Effect
     const header = document.getElementById('header');
