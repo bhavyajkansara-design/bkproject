@@ -424,6 +424,7 @@ ul { list-style: none; }
 .table-controls {
     display: flex; flex-direction: column; gap: 1rem; padding: 1.25rem;
     border-bottom: 1px solid var(--border-color); background: var(--bg-main);
+    min-width: 600px;
 }
 @media (min-width: 768px) {
     .table-controls { flex-direction: row; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; }
