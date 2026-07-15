@@ -436,7 +436,7 @@ ul {
 .ticker-track {
     display: inline-block;
     white-space: nowrap;
-    animation: ticker 30s linear infinite;
+    animation: ticker 60s linear infinite;
 }
 .ticker-item {
     display: inline-flex;
@@ -444,7 +444,8 @@ ul {
     gap: 0.5rem;
     margin-right: 2rem;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--text-main);
 }
 .ticker-item .pair { color: var(--text-muted-dark); }
