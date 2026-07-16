@@ -1011,18 +1011,100 @@ ul {
 .legal-links { display: flex; gap: 2rem; font-weight: 500; }
 .legal-links a:hover { color: var(--text-muted); }
 
+/* User Requested Base Styles */
+.user-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.user-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.user-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+video,
+iframe {
+    width: 100%;
+    height: auto;
+}
+
+.user-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.user-btn {
+    width: 100%;
+}
+
+.user-padding {
+    padding: clamp(30px, 6vw, 100px);
+}
+
+/* Header & Navigation Styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
 /* Media Queries */
-@media (max-width: 1024px) {
+
+/* Large Screens */
+@media (min-width:1440px) {
+    /* Large screen specifics */
+}
+
+/* Laptops */
+@media (max-width:1024px) {
     .hero-grid, .api-container, .compliance-grid { grid-template-columns: 1fr; gap: 3rem; }
     .hero-title { font-size: 3.5rem; }
     .bento-grid { grid-template-columns: 1fr 1fr; }
     .col-span-2 { grid-column: span 1; }
+
+    /* Tablet Header: Logo, Menu Button (CTA might be hidden or kept based on design) */
+    .nav-links {
+        display: none; /* Hide standard nav links on tablet */
+    }
+    .menu-toggle {
+        display: block; /* Show menu toggle */
+    }
+    .header-container {
+        justify-content: space-between;
+    }
 }
-@media (max-width: 768px) {
-    .header-container { flex-wrap: wrap; padding: 1rem; justify-content: center; gap: 1rem; }
-    .nav-links { flex-wrap: wrap; justify-content: center; width: 100%; gap: 1rem; }
+
+/* Tablets */
+@media (max-width:768px) {
     .hero-title { font-size: 2.8rem; }
     .bento-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .footer-legal { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+    /* Tablet Header layout adjustment */
+}
+
+/* Large Phones */
+@media (max-width:576px) {
+    /* Mobile Header: Logo   ☰ */
+    .header-actions {
+        display: none; /* Hide CTA button on mobile as per spec: Logo   ☰ */
+    }
+}
+
+/* Phones */
+@media (max-width:480px) {
+    .hero-title { font-size: 2.2rem; }
 }
