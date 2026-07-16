@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Sticky Header Effect & Mobile Menu Toggle
+    // 5. Sticky Header Effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -121,16 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
             header.classList.remove('scrolled');
         }
     });
-
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const isActive = navLinks.classList.contains('active');
-            mobileMenuBtn.innerHTML = isActive ? '✕' : '☰'; // simple icon toggle
-        });
-    }
 
     // 6. 3D Tilt Effect on Cards
     const cards = document.querySelectorAll('.bento-card');
