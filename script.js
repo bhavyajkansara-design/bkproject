@@ -93,34 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
         
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (navLinks.classList.contains('active')) {
-                    icon.setAttribute('data-lucide', 'x');
-                } else {
-                    icon.setAttribute('data-lucide', 'menu');
-                }
-                lucide.createIcons();
-            });
 
-            // Close menu on link click
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if(icon) {
-                        icon.setAttribute('data-lucide', 'menu');
-                        lucide.createIcons();
-                    }
-                });
-            });
-        }
 
         const revealLeftElements = document.querySelectorAll('.reveal-left, .reveal-right');
         revealLeftElements.forEach((el) => {
