@@ -78,6 +78,9 @@
             </nav>
             <div class="header-actions">
                 <a href="#contact" class="btn btn-accent">Book Consultation</a>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Menu">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -208,23 +211,25 @@
                             <button class="tab-btn" data-target="rates-wire">Wire Transfer</button>
                         </div>
                     </div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Currency</th>
-                                <th>We Buy</th>
-                                <th>We Sell</th>
-                                <th>Trend</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="rates-cash" class="rates-tbody">
-                        </tbody>
-                        <tbody id="rates-travel" class="rates-tbody" style="display: none;">
-                        </tbody>
-                        <tbody id="rates-wire" class="rates-tbody" style="display: none;">
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Currency</th>
+                                    <th>We Buy</th>
+                                    <th>We Sell</th>
+                                    <th>Trend</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rates-cash" class="rates-tbody">
+                            </tbody>
+                            <tbody id="rates-travel" class="rates-tbody" style="display: none;">
+                            </tbody>
+                            <tbody id="rates-wire" class="rates-tbody" style="display: none;">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <button id="see-more-rates-btn" class="btn btn-outline"
@@ -376,24 +381,24 @@
                         <table class="data-table">
                             <tbody>
                                 <tr>
-                                    <td>India</td>
-                                    <td>Reserve Bank of India (RBI)</td>
-                                    <td class="font-mono text-right">Authorized Dealer</td>
+                                    <td data-label="Region">India</td>
+                                    <td data-label="Authority">Reserve Bank of India (RBI)</td>
+                                    <td class="font-mono text-right" data-label="Status">Authorized Dealer</td>
                                 </tr>
                                 <tr>
-                                    <td>United Kingdom</td>
-                                    <td>Financial Conduct Authority (FCA)</td>
-                                    <td class="font-mono text-right">#900507</td>
+                                    <td data-label="Region">United Kingdom</td>
+                                    <td data-label="Authority">Financial Conduct Authority (FCA)</td>
+                                    <td class="font-mono text-right" data-label="Status">#900507</td>
                                 </tr>
                                 <tr>
-                                    <td>United States</td>
-                                    <td>FinCEN (MSB Registration)</td>
-                                    <td class="font-mono text-right">#31000123</td>
+                                    <td data-label="Region">United States</td>
+                                    <td data-label="Authority">FinCEN (MSB Registration)</td>
+                                    <td class="font-mono text-right" data-label="Status">#31000123</td>
                                 </tr>
                                 <tr>
-                                    <td>Global</td>
-                                    <td>SWIFT Network Member</td>
-                                    <td class="font-mono text-right">Active</td>
+                                    <td data-label="Region">Global</td>
+                                    <td data-label="Authority">SWIFT Network Member</td>
+                                    <td class="font-mono text-right" data-label="Status">Active</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -405,24 +410,24 @@
                         <table class="data-table">
                             <tbody>
                                 <tr>
-                                    <td>ISO 27001</td>
-                                    <td>Information Security Management</td>
-                                    <td><i data-lucide="check" class="text-primary"></i></td>
+                                    <td data-label="Standard">ISO 27001</td>
+                                    <td data-label="Details">Information Security Management</td>
+                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>PCI-DSS Level 1</td>
-                                    <td>Card data security standard</td>
-                                    <td><i data-lucide="check" class="text-primary"></i></td>
+                                    <td data-label="Standard">PCI-DSS Level 1</td>
+                                    <td data-label="Details">Card data security standard</td>
+                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>Data Privacy</td>
-                                    <td>GDPR & PDPB Compliant</td>
-                                    <td><i data-lucide="check" class="text-primary"></i></td>
+                                    <td data-label="Standard">Data Privacy</td>
+                                    <td data-label="Details">GDPR & PDPB Compliant</td>
+                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>Encryption</td>
-                                    <td class="font-mono">AES-256 (Rest) / TLS 1.3</td>
-                                    <td><i data-lucide="lock" class="text-primary"></i></td>
+                                    <td data-label="Standard">Encryption</td>
+                                    <td class="font-mono" data-label="Details">AES-256 (Rest) / TLS 1.3</td>
+                                    <td data-label="Compliant"><i data-lucide="lock" class="text-primary"></i></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -444,8 +449,7 @@
                     <div class="bento-card reveal-up">
                         <form
                             onsubmit="event.preventDefault(); alert('Consultation request sent! Our experts will contact you shortly.');">
-                            <div
-                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem;">
+                            <div class="form-grid">
                                 <div>
                                     <label class="lbl" style="display: block; margin-bottom: 0.5rem;">Full Name</label>
                                     <input type="text" class="form-input" placeholder="John Doe" required

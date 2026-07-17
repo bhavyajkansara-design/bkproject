@@ -92,6 +92,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
         }
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.setAttribute('data-lucide', 'x');
+                } else {
+                    icon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons();
+            });
+
+            // Close menu on link click
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if(icon) {
+                        icon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+                    }
+                });
+            });
+        }
 
         const revealLeftElements = document.querySelectorAll('.reveal-left, .reveal-right');
         revealLeftElements.forEach((el) => {
@@ -157,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         allBodies.forEach(body => body.style.display = 'none');
                         const targetBody = document.getElementById(targetId);
                         if (targetBody) {
-                            targetBody.style.display = 'table-row-group';
+                            targetBody.style.display = '';
                         }
                     }
                 });
@@ -317,22 +346,22 @@ document.addEventListener("DOMContentLoaded", () => {
             
             cashHtml += `
                 <tr ${extraRowClass} ${extraRowStyle}>
-                    <td class="font-medium">${ccy.flag} ${ccy.code} - ${ccy.name}</td>
-                    <td class="font-mono">${weBuy.toFixed(2)}</td>
-                    <td class="font-mono">${weSell.toFixed(2)}</td>
-                    <td><span class="badge ${isUp ? 'badge-success' : ''}" ${!isUp ? 'style="color:var(--danger);"' : ''}>${isUp ? '+' : '-'}${change}%</span></td>
-                    <td><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
+                    <td class="font-medium" data-label="Currency">${ccy.flag} ${ccy.code} - ${ccy.name}</td>
+                    <td class="font-mono" data-label="We Buy">${weBuy.toFixed(2)}</td>
+                    <td class="font-mono" data-label="We Sell">${weSell.toFixed(2)}</td>
+                    <td data-label="Trend"><span class="badge ${isUp ? 'badge-success' : ''}" ${!isUp ? 'style="color:var(--danger);"' : ''}>${isUp ? '+' : '-'}${change}%</span></td>
+                    <td data-label="Status"><i data-lucide="check-circle-2" class="text-primary"></i> Available</td>
                 </tr>`;
                 
             const weBuyTravel = baseRate * 0.988;
             const weSellTravel = baseRate * 1.010;
             travelHtml += `
                 <tr ${extraRowClass} ${extraRowStyle}>
-                    <td class="font-medium">${ccy.flag} ${ccy.code} - Multi-Currency Card</td>
-                    <td class="font-mono">${weBuyTravel.toFixed(2)}</td>
-                    <td class="font-mono">${weSellTravel.toFixed(2)}</td>
-                    <td><span class="badge ${isUp ? 'badge-success' : ''}" ${!isUp ? 'style="color:var(--danger);"' : ''}>${isUp ? '+' : '-'}${change}%</span></td>
-                    <td><i data-lucide="credit-card" class="text-primary"></i> Zero Load Fee</td>
+                    <td class="font-medium" data-label="Currency">${ccy.flag} ${ccy.code} - Multi-Currency Card</td>
+                    <td class="font-mono" data-label="We Buy">${weBuyTravel.toFixed(2)}</td>
+                    <td class="font-mono" data-label="We Sell">${weSellTravel.toFixed(2)}</td>
+                    <td data-label="Trend"><span class="badge ${isUp ? 'badge-success' : ''}" ${!isUp ? 'style="color:var(--danger);"' : ''}>${isUp ? '+' : '-'}${change}%</span></td>
+                    <td data-label="Status"><i data-lucide="credit-card" class="text-primary"></i> Zero Load Fee</td>
                 </tr>`;
         });
 
@@ -419,7 +448,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 expanded = !expanded;
                 const extraRows = document.querySelectorAll('.extra-rate-row');
                 extraRows.forEach(row => {
-                    row.style.display = expanded ? 'table-row' : 'none';
+                    row.style.display = expanded ? '' : 'none';
                 });
                 seeMoreBtn.innerHTML = expanded ? 
                     'See Less <i data-lucide="chevron-up" style="width:16px; height:16px; margin-left:0.5rem;"></i>' : 
