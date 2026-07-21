@@ -4,548 +4,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finwave Forex Services | Premium Currency Solutions</title>
-    <meta name="description"
-        content="Global currency exchange, international money transfers, travel cards, and student forex with premium service.">
-    <!-- Google Fonts -->
+    <title>Finwave | Global Financial Architecture</title>
+
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Lucide Icons -->
+
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="loading-state">
 
-    <!-- Preloader -->
-    <div id="preloader">
+    <!-- Cinematic Loader -->
+    <div class="cinematic-loader">
+        <div class="loader-panels">
+            <div class="panel"></div>
+            <div class="panel"></div>
+            <div class="panel"></div>
+            <div class="panel"></div>
+            <div class="panel"></div>
+        </div>
         <div class="loader-content">
-            <i data-lucide="activity" class="text-primary" style="width: 48px; height: 48px;"></i>
-            <div id="loader-percentage"
-                style="font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">
-                0%</div>
-            <div class="loader-bar">
-                <div class="loader-progress" id="loader-progress"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Animated Background Orbs -->
-    <div class="bg-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="#" class="logo" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-                <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Diagonal bars -->
-                    <rect x="20" y="5" width="16" height="60" rx="8" transform="rotate(45 28 35)" fill="#FFB800"></rect>
-                    <rect x="50" y="35" width="16" height="40" rx="8" transform="rotate(45 58 55)" fill="#FFB800">
-                    </rect>
-                    <!-- Dot -->
-                    <circle cx="70" cy="85" r="9" fill="#FFB800"></circle>
+            <div class="loader-brand">
+                <svg width="48" height="48" viewBox="0 0 100 100" class="loader-icon" style="margin-bottom:1rem;">
+                    <rect x="20" y="5" width="16" height="60" rx="8" transform="rotate(45 28 35)" fill="#FFF"></rect>
+                    <rect x="50" y="35" width="16" height="40" rx="8" transform="rotate(45 58 55)" fill="#FFF"></rect>
+                    <circle cx="70" cy="85" r="9" fill="var(--color-accent)"></circle>
                 </svg>
-                <div
-                    style="display: flex; flex-direction: column; justify-content: center; transform: translateY(2px);">
-                    <div
-                        style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; line-height: 1; letter-spacing: -0.5px; display: flex; align-items: center;">
-                        FINW<span style="position: relative; display: inline-block;">A<svg width="12" height="12"
-                                viewBox="0 0 10 10"
-                                style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <polygon points="5,0 10,10 0,10" fill="#FFB800"></polygon>
-                            </svg></span>VE
-                    </div>
-                    <div
-                        style="font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 800; color: #A0A0A0; line-height: 1; text-align: right; letter-spacing: 0.5px; margin-top: 2px;">
-                        FOREX
-                    </div>
+                <span>Finwave</span>
+            </div>
+            <div class="loader-progress-wrapper">
+                <div class="loader-bar">
+                    <div class="loader-fill"></div>
                 </div>
-            </a>
-            <nav class="nav-links">
-                <a href="#rates" class="nav-link">Live Rates</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#students" class="nav-link">Student Forex</a>
-                <a href="#services" class="nav-link">Corporate</a>
-            </nav>
-            <div class="header-actions">
-                <a href="#contact" class="btn btn-accent">Book Consultation</a>
+                <div class="loader-percentage">0.00%</div>
             </div>
         </div>
-    </header>
+    </div>
+
+    <!-- Aurora Background -->
+    <div class="aurora-bg">
+        <div class="aurora-blob aurora-1"></div>
+        <div class="aurora-blob aurora-2"></div>
+    </div>
+    <div class="noise-texture"></div>
+
+    <div class="scroll-progress"></div>
+
+    <!-- Floating Glass Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo magnetic">
+            <svg width="24" height="24" viewBox="0 0 100 100">
+                <rect x="20" y="5" width="16" height="60" rx="8" transform="rotate(45 28 35)"
+                    fill="var(--color-primary)"></rect>
+                <rect x="50" y="35" width="16" height="40" rx="8" transform="rotate(45 58 55)"
+                    fill="var(--color-primary)"></rect>
+                <circle cx="70" cy="85" r="9" fill="var(--color-accent)"></circle>
+            </svg>
+            Finwave
+        </a>
+        <div class="nav-links">
+            <a href="#expertise" class="nav-link magnetic">Expertise</a>
+            <a href="#students" class="nav-link magnetic">Students</a>
+            <a href="#markets" class="nav-link magnetic">Markets</a>
+            <a href="#trust" class="nav-link magnetic">Trust</a>
+        </div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+            <a href="#contact" class="btn btn-primary magnetic" id="nav-engage-btn">Engage</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <a href="#expertise" class="mobile-nav-link">Expertise</a>
+            <a href="#students" class="mobile-nav-link">Students</a>
+            <a href="#markets" class="mobile-nav-link">Markets</a>
+            <a href="#trust" class="mobile-nav-link">Trust</a>
+            <a href="#contact" class="mobile-nav-link" style="color:var(--color-accent); margin-top:2rem;">Engage</a>
+        </div>
+    </div>
 
     <main>
-        <!-- Live Ticker -->
-        <div class="ticker-wrap">
-            <div class="ticker-track" id="ticker-track">
-                <span class="ticker-item"><span class="pair">Loading live FX...</span></span>
+        <!-- HERO (3D Globe & Dashboard) -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge reveal-blur">
+                        <span
+                            style="display:inline-block; width:6px; height:6px; background:var(--color-secondary); border-radius:50%; margin-right:6px; box-shadow: 0 0 8px var(--color-secondary);"></span>
+                        Operating at global scale
+                    </div>
+                    <h1 class="hero-title split-words"
+                        style="font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.01em;">
+                        Financial structure.<br>Engineered for scale.
+                    </h1>
+                    <p class="hero-desc reveal-blur">
+                        We orchestrate international liquidity with mathematical precision. Experience zero-margin
+                        currency exchange backed by institutional-grade security.
+                    </p>
+                    <div class="hero-actions reveal-blur" style="display:flex; gap:1rem;">
+                        <a href="#contact" class="btn btn-primary magnetic hover-expand">Initiate Transfer</a>
+                        <a href="#markets" class="btn btn-outline magnetic">View Markets</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- 3D CSS Globe -->
+                    <div class="globe-container">
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                        <div class="globe-ring"></div>
+                    </div>
+
+                    <!-- Glass Dashboard Overlay -->
+                    <div class="hero-glass-card interactive-tilt magnetic-card hover-drag">
+                        <div class="h-row" style="border-bottom:none; margin-bottom:0;">
+                            <span class="h-label">LIVE QUOTE</span>
+                            <i data-lucide="calculator"
+                                style="width:16px; height:16px; color:var(--color-secondary);"></i>
+                        </div>
+                        <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; background:#FFF; border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:0.5rem 1rem;">
+                                <input type="number" id="calc-amount" value="100000"
+                                    style="border:none; outline:none; font-family:var(--font-heading); font-size:20px; font-weight:500; width:40%; color:var(--color-primary);">
+                                <span
+                                    style="font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--color-muted);">🇮🇳
+                                    &nbsp;&nbsp; ₹
+                                    INR - Indian Rupee (₹)</span>
+                            </div>
+                            <div style="text-align:center; color:var(--color-muted);">
+                                <i data-lucide="arrow-down" style="width:16px; height:16px;"></i>
+                            </div>
+                            <div
+                                style="display:flex; justify-content:space-between; align-items:center; background:rgba(6,16,36,0.03); border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:0.5rem 1rem;">
+                                <div id="calc-result"
+                                    style="font-family:var(--font-heading); font-size:20px; font-weight:500; width:40%; color:var(--color-primary); overflow:hidden; text-overflow:ellipsis;">
+                                    109,450.00</div>
+                                <select id="calc-to"
+                                    style="border:none; outline:none; font-family:var(--font-mono); font-size:12px; background:transparent; font-weight:600; max-width: 55%; cursor:pointer;">
+                                    <option value="USD" selected>🇺🇸 &nbsp;&nbsp; $ USD - US Dollar ($)</option>
+                                    <option value="EUR">🇪🇺 &nbsp;&nbsp; € EUR - Euro (€)</option>
+                                    <option value="GBP">🇬🇧 &nbsp;&nbsp; £ GBP - British Pound (£)</option>
+                                    <option value="AUD">🇦🇺 &nbsp;&nbsp; A$ AUD - Australian Dollar (A$)</option>
+                                    <option value="CAD">🇨🇦 &nbsp;&nbsp; C$ CAD - Canadian Dollar (C$)</option>
+                                    <option value="SGD">🇸🇬 &nbsp;&nbsp; S$ SGD - Singapore Dollar (S$)</option>
+                                    <option value="AED">🇦🇪 &nbsp;&nbsp; د.إ AED - UAE Dirham (د.إ)</option>
+                                    <option value="CHF">🇨🇭 &nbsp;&nbsp; Fr CHF - Swiss Franc (Fr)</option>
+                                    <option value="JPY">🇯🇵 &nbsp;&nbsp; ¥ JPY - Japanese Yen (¥)</option>
+                                    <option value="NZD">🇳🇿 &nbsp;&nbsp; NZ$ NZD - New Zealand Dollar (NZ$)</option>
+                                    <option value="SAR">🇸🇦 &nbsp;&nbsp; ر.س SAR - Saudi Riyal (ر.س)</option>
+                                    <option value="HKD">🇭🇰 &nbsp;&nbsp; HK$ HKD - Hong Kong Dollar (HK$)</option>
+                                    <option value="THB">🇹🇭 &nbsp;&nbsp; ฿ THB - Thai Baht (฿)</option>
+                                    <option value="MYR">🇲🇾 &nbsp;&nbsp; RM MYR - Malaysian Ringgit (RM)</option>
+                                    <option value="CNY">🇨🇳 &nbsp;&nbsp; ¥ CNY - Chinese Yuan (¥)</option>
+                                    <option value="ZAR">🇿🇦 &nbsp;&nbsp; R ZAR - South African Rand (R)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="h-row" style="border:none; margin:1rem 0 0; padding:0;">
+                            <span class="h-label">INTERBANK RATE</span>
+                            <span id="calc-rate" class="h-val text-positive" style="font-size:14px;">1.0945</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARKETS (Pristine Dashboard) -->
+        <section id="markets" class="section">
+            <div
+                style="max-width:var(--container); margin: 0 auto 4rem; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:2rem;">
+                <div>
+                    <h2 class="split-words">Live Markets</h2>
+                    <p class="reveal-blur text-muted" style="margin-top:0.5rem;">Real-time interbank core rates.</p>
+                </div>
+                <div class="reveal-blur" style="display:flex; gap:1rem; align-items:center;">
+                    <div
+                        style="display:flex; align-items:center; gap:0.5rem; background:#FFF; border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:0.5rem 1rem; box-shadow:var(--shadow-glass);">
+                        <i data-lucide="search" style="width:16px; height:16px; color:var(--color-muted);"></i>
+                        <input type="text" id="currency-search" placeholder="Search pairs..."
+                            style="border:none; outline:none; font-family:var(--font-body); font-size:14px; background:transparent;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="forex-dashboard reveal-blur" id="live-dashboard">
+                <div class="dash-header">
+                    <span>Asset Pair</span>
+                    <span>Bid</span>
+                    <span>Ask</span>
+                    <span>Trend (24h)</span>
+                    <span>7D Trend</span>
+                    <span>Action</span>
+                </div>
+
+                <div id="market-list">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <div style="text-align: center; margin-top: 1.5rem;" id="see-more-container">
+                    <button id="see-more-btn" class="btn btn-outline magnetic"
+                        style="font-size: 14px; padding: 0.8rem 2rem;">See More Markets</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTISE (Split Editorial Layout) -->
+        <section id="expertise" class="section">
+            <div class="editorial-grid">
+                <div class="sticky-text">
+                    <h2 class="split-words">Core<br>Expertise</h2>
+                    <p class="reveal-blur" style="margin-top:1.5rem; font-size:20px;">We provide comprehensive financial
+                        architecture for the modern multinational enterprise.</p>
+                </div>
+
+                <div class="editorial-cards">
+                    <div class="ed-card reveal-blur magnetic-card">
+                        <i data-lucide="briefcase" class="ed-icon"></i>
+                        <h3>Corporate Treasury</h3>
+                        <p>Advanced forward contracts and multi-currency hedging strategies to mitigate FX risk on a
+                            global scale.</p>
+                    </div>
+
+                    <div class="ed-card reveal-blur magnetic-card" style="background:var(--color-primary); color:#FFF;">
+                        <i data-lucide="globe"
+                            style="width:32px; height:32px; color:var(--color-accent); margin-bottom:2rem;"></i>
+                        <h3 style="color:#FFF;">Global Liquidity</h3>
+                        <p style="color:rgba(255,255,255,0.7);">Direct access to interbank pools, allowing enterprise
+                            clients to execute bulk international payouts instantly.</p>
+                    </div>
+
+                    <div class="ed-card reveal-blur magnetic-card">
+                        <i data-lucide="credit-card" class="ed-icon"></i>
+                        <h3>Premium Cards</h3>
+                        <p>15 currencies natively. Zero hidden cross-currency margins. Built for executives and global
+                            travelers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT FOREX -->
+        <section id="students" class="section">
+            <div class="responsive-split">
+
+                <!-- Left side -->
+                <div class="reveal-blur">
+                    <h2 class="split-words" style="margin-bottom:1.5rem;">Student Forex Solutions.</h2>
+                    <p class="text-muted" style="margin-bottom:2.5rem; font-size:18px;">Studying abroad requires precise
+                        financial planning. We ensure university fees are paid on time and student living expenses are
+                        securely managed.</p>
+
+                    <div style="display:flex; flex-direction:column; gap:1.5rem; margin-bottom:3rem;">
+                        <div style="display:flex; align-items:center; gap:1rem; font-weight:500;">
+                            <i data-lucide="graduation-cap"
+                                style="color:var(--color-primary); width:24px; height:24px;"></i>
+                            <span>Direct University Fee Remittances (A2 Form assistance)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; font-weight:500;">
+                            <i data-lucide="wallet" style="color:var(--color-primary); width:24px; height:24px;"></i>
+                            <span>Student Multi-Currency Prepaid Cards (ISIC integrated)</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; font-weight:500;">
+                            <i data-lucide="file-text" style="color:var(--color-primary); width:24px; height:24px;"></i>
+                            <span>Education Loan Disbursement processing</span>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:1rem; font-weight:500;">
+                            <i data-lucide="info"
+                                style="color:var(--color-primary); width:24px; height:24px; opacity:0;"></i>
+                            <!-- placeholder for alignment -->
+                            <span>Free Visa financial documentation support</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn magnetic btn-student">Consult a Student Advisor</a>
+                </div>
+
+                <!-- Right side (Checklist) -->
+                <div class="reveal-blur"
+                    style="background:rgba(238, 231, 220, 0.5); border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-glass);">
+                    <div
+                        style="padding:1.5rem 2rem; border-bottom:1px solid var(--color-border); font-family:var(--font-heading); font-weight:600; color:var(--color-muted); text-transform:uppercase; letter-spacing:0.05em;">
+                        REMITTANCE CHECKLIST
+                    </div>
+                    <div style="padding:2rem;">
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1.5rem; border-bottom:1px solid rgba(0,0,0,0.05); margin-bottom:1.5rem; font-weight:500;">
+                            <span>1. Passport Copy (Front & Back)</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1.5rem; border-bottom:1px solid rgba(0,0,0,0.05); margin-bottom:1.5rem; font-weight:500;">
+                            <span>2. Valid Student Visa</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1.5rem; border-bottom:1px solid rgba(0,0,0,0.05); margin-bottom:1.5rem; font-weight:500;">
+                            <span>3. University Admission Letter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div
+                            style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1.5rem; border-bottom:1px solid rgba(0,0,0,0.05); margin-bottom:1.5rem; font-weight:500;">
+                            <span>4. A2 Form & Declaration</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-weight:500;">
+                            <span>5. Source of Funds Proof</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TRUST (Timeline & Stats) -->
+        <section id="trust" class="section">
+            <div class="responsive-split">
+                <div>
+                    <h2 class="split-words" style="margin-bottom:2rem;">Institutional<br>Trust</h2>
+                    <div style="display:flex; flex-direction:column; gap:2rem;">
+                        <div class="" style="border-left: 2px solid var(--color-accent); padding-left:1.5rem;">
+                            <div class="font-mono text-muted" style="font-size:13px; margin-bottom:0.5rem;">REGULATORY
+                            </div>
+                            <h3 style="font-size:20px;">Authorized by FCA & RBI</h3>
+                        </div>
+                        <div class="" style="border-left: 2px solid var(--color-accent); padding-left:1.5rem;">
+                            <div class="font-mono text-muted" style="font-size:13px; margin-bottom:0.5rem;">SECURITY
+                            </div>
+                            <h3 style="font-size:20px;">ISO 27001 & PCI DSS</h3>
+                        </div>
+                        <div class="" style="border-left: 2px solid var(--color-accent); padding-left:1.5rem;">
+                            <div class="font-mono text-muted" style="font-size:13px; margin-bottom:0.5rem;">NETWORK
+                            </div>
+                            <h3 style="font-size:20px;">Direct SWIFT Integration</h3>
+                        </div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
+                    <div class=""
+                        style="background:#FFF; padding:3rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-glass); text-align:center;">
+                        <div
+                            style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); margin-bottom:0.5rem;">
+                            50B+
+                        </div>
+                        <div class="text-muted" style="font-size:14px;">Volume Processed</div>
+                    </div>
+                    <div class=""
+                        style="background:#FFF; padding:3rem; border-radius:var(--radius-lg); box-shadow:var(--shadow-glass); text-align:center; transform:translateY(3rem);">
+                        <div
+                            style="font-family:var(--font-heading); font-size:48px; color:var(--color-primary); margin-bottom:0.5rem;">
+                            99.99%
+                        </div>
+                        <div class="text-muted" style="font-size:14px;">Uptime SLA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT (Bento Grid) -->
+        <section id="contact" class="section">
+            <div style="text-align:center; margin-bottom:4rem;">
+                <h2 class="split-words">Initiate</h2>
+            </div>
+
+            <div class="contact-bento">
+                <!-- Form & WhatsApp -->
+                <div class="contact-panel primary-panel reveal-blur">
+                    <h3 style="margin-bottom:2rem;">Direct Inquiry</h3>
+                    <form>
+                        <div class="input-floating">
+                            <input type="text" required>
+                            <label>Legal Entity / Name</label>
+                        </div>
+                        <div class="input-floating">
+                            <input type="email" required>
+                            <label>Digital Address (Email)</label>
+                        </div>
+                        <button class="btn magnetic"
+                            style="background:#FFF; color:var(--color-primary); width:100%; margin-top:1rem;">Submit
+                            Request</button>
+                    </form>
+
+                    <div
+                        style="margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:14px; color:rgba(255,255,255,0.7);">Need instant support?</span>
+                        <a href="#" class="magnetic"
+                            style="display:flex; align-items:center; gap:0.5rem; color:var(--color-accent); font-weight:500;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <svg width="32" height="32" viewBox="0 0 100 100" style="margin-bottom:1rem;">
+                    <rect x="20" y="5" width="16" height="60" rx="8" transform="rotate(45 28 35)" fill="#FFF"></rect>
+                    <rect x="50" y="35" width="16" height="40" rx="8" transform="rotate(45 58 55)" fill="#FFF"></rect>
+                    <circle cx="70" cy="85" r="9" fill="var(--color-accent)"></circle>
+                </svg>
+                <p style="color: rgba(255,255,255,0.6); font-size:14px; max-width:200px;">Structured financial
+                    architecture for the modern institution.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Index</h4>
+                <a href="#expertise" class="magnetic-link">Expertise</a>
+                <a href="#markets" class="magnetic-link">Markets</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#" class="magnetic-link">Compliance</a>
+                <a href="#" class="magnetic-link">Privacy Policy</a>
+                <a href="#" class="magnetic-link">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div style="position:relative; margin-top:1rem;">
+                    <input type="email" placeholder="Email address"
+                        style="width:100%; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.2); padding:0.5rem 0; color:#FFF; outline:none; font-size:14px;">
+                    <i data-lucide="arrow-right"
+                        style="position:absolute; right:0; top:0.5rem; width:16px; height:16px; color:var(--color-accent); cursor:pointer;"></i>
+                </div>
             </div>
         </div>
 
-        <!-- Hero Section -->
-        <section class="hero section-border-bottom">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content reveal-up">
-                        <div class="hero-badge">
-                            <span class="status-dot"></span>
-                            Live Market Feed Connected
-                        </div>
-                        <h1 class="hero-title">
-                            Global Finance,<br><span>Structured.</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            The premier provider for currency exchange, international remittance, and travel cards. Get
-                            bank-beating rates with zero hidden margins.
-                        </p>
-                        <div class="hero-cta">
-                            <a href="#rates" class="btn btn-primary">Get Live Rates</a>
-                            <a href="#services" class="btn btn-outline">Explore Services</a>
-                        </div>
+        <h1 class="massive-brand">FINWAVE</h1>
 
-                        <div class="hero-metrics">
-                            <div class="metric">
-                                <span class="metric-value">130+</span>
-                                <span class="metric-label">Currencies</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">50K+</span>
-                                <span class="metric-label">Clients</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">Zero</span>
-                                <span class="metric-label">Hidden Fees</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-visual reveal-left">
-                        <!-- Premium Glass Widget -->
-                        <div class="glass-widget">
-                            <div class="widget-title">
-                                <span>Instant Quote</span>
-                                <i data-lucide="refresh-cw" id="widget-refresh"
-                                    style="cursor:pointer; width:18px; color:#94A3B8;"></i>
-                            </div>
-
-                            <div class="widget-row">
-                                <span class="widget-lbl">YOU SEND</span>
-                                <div class="widget-input-group">
-                                    <input type="text" id="quote-input" class="widget-input" value="100,000"
-                                        inputmode="decimal">
-                                    <select id="quote-send-curr" class="widget-select" disabled
-                                        style="opacity: 0.8; cursor: not-allowed; appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 0.75rem;">
-                                        <option value="INR" selected>INR</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="widget-connector">
-                                <span>Rate: <span id="quote-rate" class="rate-chip">Fetching...</span></span>
-                                <span>Fee: <span style="color:#FFFFFF;">0.00</span></span>
-                            </div>
-
-                            <div class="widget-row" style="border-color: rgba(255, 184, 0, 0.3);">
-                                <span class="widget-lbl" style="color: var(--primary);">YOU RECEIVE</span>
-                                <div class="widget-input-group">
-                                    <input type="text" id="quote-output" class="widget-input"
-                                        style="color: var(--primary);" value="0.00" inputmode="decimal">
-                                    <select id="quote-recv-curr" class="widget-select">
-                                        <option value="USD" selected>USD</option>
-                                        <option value="EUR">EUR</option>
-                                        <option value="GBP">GBP</option>
-                                        <option value="AUD">AUD</option>
-                                        <option value="CAD">CAD</option>
-                                        <option value="SGD">SGD</option>
-                                        <option value="AED">AED</option>
-                                        <option value="CHF">CHF</option>
-                                        <option value="JPY">JPY</option>
-                                        <option value="NZD">NZD</option>
-                                        <option value="SAR">SAR</option>
-                                        <option value="HKD">HKD</option>
-                                        <option value="THB">THB</option>
-                                        <option value="MYR">MYR</option>
-                                        <option value="CNY">CNY</option>
-                                        <option value="ZAR">ZAR</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-primary widget-submit"
-                                onclick="alert('Locking rate and starting flow...')">Lock in Rate</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live Exchange Rates Ledger Table -->
-        <section id="rates" class="ledger-section section-border-bottom bg-light">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Live Exchange Rates</h2>
-                    <p class="section-desc">Highly competitive wholesale rates sourced directly from interbank liquidity
-                        pools.</p>
-                </div>
-
-                <div class="data-table-wrapper reveal-up">
-                    <div class="table-controls">
-                        <div class="search-bar">
-                            <i data-lucide="search"></i>
-                            <input type="text" placeholder="Search currency..." disabled>
-                        </div>
-                        <div class="tab-group">
-                            <button class="tab-btn active" data-target="rates-cash">Cash / Currency</button>
-                            <button class="tab-btn" data-target="rates-travel">Travel Cards</button>
-                            <button class="tab-btn" data-target="rates-wire">Wire Transfer</button>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Currency</th>
-                                    <th>We Buy</th>
-                                    <th>We Sell</th>
-                                    <th>Trend</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody id="rates-cash" class="rates-tbody">
-                            </tbody>
-                            <tbody id="rates-travel" class="rates-tbody" style="display: none;">
-                            </tbody>
-                            <tbody id="rates-wire" class="rates-tbody" style="display: none;">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 1.5rem;">
-                    <button id="see-more-rates-btn" class="btn btn-outline"
-                        style="border-radius: 9999px; padding: 0.5rem 1.5rem; font-size: 0.9rem; font-weight: 500;">
-                        See More <i data-lucide="chevron-down" style="width:16px; height:16px; margin-left:0.5rem;"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bento Box Services -->
-        <section id="services" class="bento-section section-border-bottom">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Comprehensive Forex Services</h2>
-                    <p class="section-desc">From travel cash to multi-currency corporate hedging, we structure solutions
-                        for your specific needs.</p>
-                </div>
-
-                <div class="bento-grid">
-                    <!-- Bento Card 1 -->
-                    <div class="bento-card col-span-2 reveal-up">
-                        <div class="bento-header">
-                            <i data-lucide="credit-card"></i>
-                            <h3>Premium Travel Cards</h3>
-                        </div>
-                        <p class="bento-desc">Load up to 15 currencies on a single card. Lock in exchange rates before
-                            you travel and spend globally with zero cross-currency markup.</p>
-                        <div class="mini-data-grid">
-                            <div class="mini-data-item">
-                                <span class="lbl">Supported Currencies</span>
-                                <span class="val font-mono">15+</span>
-                            </div>
-                            <div class="mini-data-item">
-                                <span class="lbl">Issuance Time</span>
-                                <span class="val font-mono">Same Day</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bento Card 2 -->
-                    <div class="bento-card reveal-up">
-                        <div class="bento-header">
-                            <i data-lucide="banknote"></i>
-                            <h3>Currency Exchange</h3>
-                        </div>
-                        <p class="bento-desc">Buy and sell foreign currency cash with the best wholesale rates in the
-                            market.</p>
-                        <div class="bento-tag">Doorstep Delivery Available</div>
-                    </div>
-
-                    <!-- Bento Card 3 -->
-                    <div class="bento-card reveal-up">
-                        <div class="bento-header">
-                            <i data-lucide="plane-takeoff"></i>
-                            <h3>Travel Insurance</h3>
-                        </div>
-                        <p class="bento-desc">Comprehensive global coverage for medical emergencies, trip cancellations,
-                            and lost baggage.</p>
-                        <a href="#contact" class="bento-link">Get a Quote <i data-lucide="arrow-right"></i></a>
-                    </div>
-
-                    <!-- Bento Card 4 -->
-                    <div class="bento-card col-span-2 reveal-up">
-                        <div class="bento-header">
-                            <i data-lucide="briefcase" class="text-primary"></i>
-                            <h3 id="corporate">Corporate Forex</h3>
-                        </div>
-                        <p class="bento-desc">Dedicated treasury management for import/export
-                            businesses. Mitigate currency risk with forward contracts and execute bulk international
-                            payouts instantly.</p>
-                        <div class="vban-visual">
-                            <div class="vban-row"><span class="v-lbl">Forward Contracts</span><span
-                                    class="v-val font-mono">Lock rates up to 12 months</span></div>
-                            <div class="vban-row"><span class="v-lbl">Bulk Payments</span><span
-                                    class="v-val font-mono">Settle 500+ invoices in 1 click</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Student Forex Section -->
-        <section id="students" class="api-section section-border-bottom bg-light">
-            <div class="container api-container">
-                <div class="api-content reveal-left">
-                    <h2 class="section-title">Student Forex Solutions.</h2>
-                    <p class="section-desc">Studying abroad requires precise financial planning. We ensure university
-                        fees are paid on time and student living expenses are securely managed.</p>
-
-                    <ul class="api-features">
-                        <li><i data-lucide="graduation-cap"></i> Direct University Fee Remittances (A2 Form assistance)
-                        </li>
-                        <li><i data-lucide="wallet"></i> Student Multi-Currency Prepaid Cards (ISIC integrated)</li>
-                        <li><i data-lucide="file-text"></i> Education Loan Disbursement processing</li>
-                        <li><i data-lucide="passport"></i> Free Visa financial documentation support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary mt-4">Consult a Student Advisor</a>
-                </div>
-                <div class="api-code reveal-right">
-                    <!-- Replacing code block with a structured info panel -->
-                    <div class="terminal-window"
-                        style="background: var(--bg-main); border: 1px solid var(--border-color); box-shadow: none;">
-                        <div class="terminal-header"
-                            style="background: var(--bg-light); border-bottom: 1px solid var(--border-color);">
-                            <div class="terminal-title" style="color: var(--text-main);">REMITTANCE CHECKLIST</div>
-                        </div>
-                        <div class="terminal-body" style="padding: 1.5rem;">
-                            <div class="vban-row"
-                                style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;"><span
-                                    class="v-lbl" style="color: var(--text-main);">1. Passport Copy (Front &
-                                    Back)</span><i data-lucide="check" style="color: var(--primary); width:16px;"></i>
-                            </div>
-                            <div class="vban-row"
-                                style="border-bottom: 1px solid var(--border-color); padding: 0.5rem 0;"><span
-                                    class="v-lbl" style="color: var(--text-main);">2. Valid Student Visa</span><i
-                                    data-lucide="check" style="color: var(--primary); width:16px;"></i></div>
-                            <div class="vban-row"
-                                style="border-bottom: 1px solid var(--border-color); padding: 0.5rem 0;"><span
-                                    class="v-lbl" style="color: var(--text-main);">3. University Admission
-                                    Letter</span><i data-lucide="check" style="color: var(--primary); width:16px;"></i>
-                            </div>
-                            <div class="vban-row"
-                                style="border-bottom: 1px solid var(--border-color); padding: 0.5rem 0;"><span
-                                    class="v-lbl" style="color: var(--text-main);">4. A2 Form & Declaration</span><i
-                                    data-lucide="check" style="color: var(--primary); width:16px;"></i></div>
-                            <div class="vban-row" style="padding-top: 0.5rem;"><span class="v-lbl"
-                                    style="color: var(--text-main);">5. Source of Funds Proof</span><i
-                                    data-lucide="check" style="color: var(--primary); width:16px;"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Compliance & Trust Ledger -->
-        <section id="compliance" class="compliance-section section-border-bottom">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Regulatory Trust & Security</h2>
-                    <p class="section-desc">Fully licensed, authorized, and compliant with international monetary
-                        guidelines.</p>
-                </div>
-
-                <div class="compliance-grid">
-                    <!-- Regulatory Table -->
-                    <div class="compliance-table-container reveal-up">
-                        <h4 class="table-title">Regulatory Authorizations</h4>
-                        <table class="data-table">
-                            <tbody>
-                                <tr>
-                                    <td data-label="Region">India</td>
-                                    <td data-label="Authority">Reserve Bank of India (RBI)</td>
-                                    <td class="font-mono text-right" data-label="Status">Authorized Dealer</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Region">United Kingdom</td>
-                                    <td data-label="Authority">Financial Conduct Authority (FCA)</td>
-                                    <td class="font-mono text-right" data-label="Status">#900507</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Region">United States</td>
-                                    <td data-label="Authority">FinCEN (MSB Registration)</td>
-                                    <td class="font-mono text-right" data-label="Status">#31000123</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Region">Global</td>
-                                    <td data-label="Authority">SWIFT Network Member</td>
-                                    <td class="font-mono text-right" data-label="Status">Active</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Security Table -->
-                    <div class="compliance-table-container reveal-up">
-                        <h4 class="table-title">Security & Operations</h4>
-                        <table class="data-table">
-                            <tbody>
-                                <tr>
-                                    <td data-label="Standard">ISO 27001</td>
-                                    <td data-label="Details">Information Security Management</td>
-                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Standard">PCI-DSS Level 1</td>
-                                    <td data-label="Details">Card data security standard</td>
-                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Standard">Data Privacy</td>
-                                    <td data-label="Details">GDPR & PDPB Compliant</td>
-                                    <td data-label="Compliant"><i data-lucide="check" class="text-primary"></i></td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Standard">Encryption</td>
-                                    <td class="font-mono" data-label="Details">AES-256 (Rest) / TLS 1.3</td>
-                                    <td data-label="Compliant"><i data-lucide="lock" class="text-primary"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact / Consultation -->
-        <section id="contact" class="compliance-section section-border-bottom bg-light">
-            <div class="container">
-                <div class="section-header reveal-up">
-                    <h2 class="section-title">Book a Consultation</h2>
-                    <p class="section-desc">Speak with our Forex experts to structure your corporate hedging or plan
-                        your student remittance.</p>
-                </div>
-
-                <div class="bento-grid" style="grid-template-columns: 1fr; max-width: 800px;">
-                    <div class="bento-card reveal-up">
-                        <form
-                            onsubmit="event.preventDefault(); alert('Consultation request sent! Our experts will contact you shortly.');">
-                            <div class="form-grid">
-                                <div>
-                                    <label class="lbl" style="display: block; margin-bottom: 0.5rem;">Full Name</label>
-                                    <input type="text" class="form-input" placeholder="John Doe" required
-                                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: var(--bg-main); font-family: var(--font-body); font-size: 0.9rem; border-radius: 2px; outline: none;">
-                                </div>
-                                <div>
-                                    <label class="lbl" style="display: block; margin-bottom: 0.5rem;">Email
-                                        Address</label>
-                                    <input type="email" class="form-input" placeholder="john@company.com" required
-                                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: var(--bg-main); font-family: var(--font-body); font-size: 0.9rem; border-radius: 2px; outline: none;">
-                                </div>
-                            </div>
-                            <div style="margin-bottom: 2rem;">
-                                <label class="lbl" style="display: block; margin-bottom: 0.5rem;">Service
-                                    Required</label>
-                                <select class="form-input"
-                                    style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: var(--bg-main); font-family: var(--font-body); font-size: 0.9rem; border-radius: 2px; outline: none;">
-                                    <option>Corporate Treasury & Hedging</option>
-                                    <option>Student Forex & Remittance</option>
-                                    <option>Personal Travel Cards</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Request Callback</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Detailed Structural Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <a href="#" class="logo">
-                        <i data-lucide="activity" class="logo-icon"></i>
-                        <span>Finwave</span>
-                    </a>
-                    <p class="footer-desc mt-2">The premier structural provider for global currency, travel, and
-                        international payments.</p>
-                    <div class="status-indicator mt-4">
-                        <span class="status-dot"></span>
-                        <span class="font-mono text-xs text-muted">Operations: Normal</span>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="#">Currency Exchange</a>
-                    <a href="#">Travel Cards</a>
-                    <a href="#">Student Forex</a>
-                    <a href="#">Corporate Solutions</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <a href="#">Exchange Rates</a>
-                    <a href="#">Branch Locator</a>
-                    <a href="#">Track Transfer</a>
-                    <a href="#">Support Center</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="#">About Finwave</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Press</a>
-                    <a href="#">Compliance</a>
-                </div>
-            </div>
-
-            <div class="footer-legal">
-                <div class="legal-text">
-                    <p>Finwave Forex Services Ltd is authorized by the Reserve Bank of India (RBI) and the Financial
-                        Conduct Authority (FCA) for currency exchange and electronic money issuance.</p>
-                    <p class="mt-1">&copy; 2026 Finwave Inc. All rights reserved.</p>
-                </div>
-                <div class="legal-links">
-                    <a href="#">Terms & Conditions</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Finwave Inc. All rights reserved.</span>
+            <span>Authorized by RBI & FCA.</span>
         </div>
     </footer>
 
-    <!-- WhatsApp FAB -->
-    <a href="#" class="fab-wa" aria-label="Chat on WhatsApp" onclick="alert('Opening WhatsApp...')">
-        <svg viewBox="0 0 24 24">
-            <path
-                d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.461 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414z" />
-        </svg>
-    </a>
-
-    <!-- GSAP & Plugins -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <!-- Custom Script -->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <!-- Core JS -->
     <script src="script.js"></script>
 </body>
 
