@@ -198,6 +198,7 @@ p { color: var(--color-text); }
 
 .hero-title { margin-bottom: 2rem; }
 .hero-desc { margin-bottom: 3rem; font-size: var(--text-body); color: var(--color-muted); max-width: 500px; }
+.hero-action-btns { display: flex; gap: 1rem; }
 
 /* 3D Visual Container */
 .hero-visual { position: relative; perspective: 1200px; height: 500px; display: flex; justify-content: center; align-items: center; }
@@ -310,6 +311,8 @@ p { color: var(--color-text); }
 
 @media (max-width: 1024px) {
     .hero-grid, .editorial-grid, .responsive-split { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .hero-desc { margin-left: auto; margin-right: auto; }
+    .hero-action-btns { justify-content: center; flex-wrap: wrap; }
     .hero-visual { height: auto; min-height: 250px; padding-top: 1rem; }
     .hero-glass-card { position: relative; width: 100%; bottom: 0; transform: none; margin-top: 1rem; text-align: left; }
     .sticky-text { position: relative; top: 0; margin-bottom: 2rem; }
