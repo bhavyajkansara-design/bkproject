@@ -139,40 +139,38 @@
                         </div>
                         <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
                             <div
-                                style="display:flex; justify-content:space-between; align-items:center; background:#FFF; border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:0.5rem 1rem;">
+                                style="display:flex; justify-content:space-between; align-items:center; background:#FFF; border:1px solid var(--color-border); border-radius:var(--radius-md); padding:0.5rem 1rem;">
                                 <input type="number" id="calc-amount" value="100000"
-                                    style="border:none; outline:none; font-family:var(--font-heading); font-size:20px; font-weight:500; width:40%; color:var(--color-primary);">
+                                    style="border:none; outline:none; font-family:var(--font-heading); font-size:20px; font-weight:500; width:45%; color:var(--color-primary); min-width:0;">
                                 <span
-                                    style="font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--color-muted);">🇮🇳
-                                    &nbsp;&nbsp; ₹
-                                    INR - Indian Rupee (₹)</span>
+                                    style="font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--color-muted); max-width:50%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:right;">🇮🇳 ₹ INR - Indian Rupee</span>
                             </div>
                             <div style="text-align:center; color:var(--color-muted);">
                                 <i data-lucide="arrow-down" style="width:16px; height:16px;"></i>
                             </div>
                             <div
-                                style="display:flex; justify-content:space-between; align-items:center; background:rgba(6,16,36,0.03); border:1px solid var(--color-border); border-radius:var(--radius-pill); padding:0.5rem 1rem;">
+                                style="display:flex; justify-content:space-between; align-items:center; background:rgba(6,16,36,0.03); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:0.5rem 1rem;">
                                 <div id="calc-result"
-                                    style="font-family:var(--font-heading); font-size:20px; font-weight:500; width:40%; color:var(--color-primary); overflow:hidden; text-overflow:ellipsis;">
+                                    style="font-family:var(--font-heading); font-size:20px; font-weight:500; width:45%; color:var(--color-primary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                                     109,450.00</div>
                                 <select id="calc-to"
-                                    style="border:none; outline:none; font-family:var(--font-mono); font-size:12px; background:transparent; font-weight:600; max-width: 55%; cursor:pointer;">
-                                    <option value="USD" selected>🇺🇸 &nbsp;&nbsp; $ USD - US Dollar ($)</option>
-                                    <option value="EUR">🇪🇺 &nbsp;&nbsp; € EUR - Euro (€)</option>
-                                    <option value="GBP">🇬🇧 &nbsp;&nbsp; £ GBP - British Pound (£)</option>
-                                    <option value="AUD">🇦🇺 &nbsp;&nbsp; A$ AUD - Australian Dollar (A$)</option>
-                                    <option value="CAD">🇨🇦 &nbsp;&nbsp; C$ CAD - Canadian Dollar (C$)</option>
-                                    <option value="SGD">🇸🇬 &nbsp;&nbsp; S$ SGD - Singapore Dollar (S$)</option>
-                                    <option value="AED">🇦🇪 &nbsp;&nbsp; د.إ AED - UAE Dirham (د.إ)</option>
-                                    <option value="CHF">🇨🇭 &nbsp;&nbsp; Fr CHF - Swiss Franc (Fr)</option>
-                                    <option value="JPY">🇯🇵 &nbsp;&nbsp; ¥ JPY - Japanese Yen (¥)</option>
-                                    <option value="NZD">🇳🇿 &nbsp;&nbsp; NZ$ NZD - New Zealand Dollar (NZ$)</option>
-                                    <option value="SAR">🇸🇦 &nbsp;&nbsp; ر.س SAR - Saudi Riyal (ر.س)</option>
-                                    <option value="HKD">🇭🇰 &nbsp;&nbsp; HK$ HKD - Hong Kong Dollar (HK$)</option>
-                                    <option value="THB">🇹🇭 &nbsp;&nbsp; ฿ THB - Thai Baht (฿)</option>
-                                    <option value="MYR">🇲🇾 &nbsp;&nbsp; RM MYR - Malaysian Ringgit (RM)</option>
-                                    <option value="CNY">🇨🇳 &nbsp;&nbsp; ¥ CNY - Chinese Yuan (¥)</option>
-                                    <option value="ZAR">🇿🇦 &nbsp;&nbsp; R ZAR - South African Rand (R)</option>
+                                    style="border:none; outline:none; font-family:var(--font-mono); font-size:12px; background:transparent; font-weight:600; max-width: 50%; cursor:pointer; text-overflow:ellipsis;">
+                                    <option value="USD" selected>🇺🇸 $ USD</option>
+                                    <option value="EUR">🇪🇺 € EUR</option>
+                                    <option value="GBP">🇬🇧 £ GBP</option>
+                                    <option value="AUD">🇦🇺 A$ AUD</option>
+                                    <option value="CAD">🇨🇦 C$ CAD</option>
+                                    <option value="SGD">🇸🇬 S$ SGD</option>
+                                    <option value="AED">🇦🇪 د.إ AED</option>
+                                    <option value="CHF">🇨🇭 Fr CHF</option>
+                                    <option value="JPY">🇯🇵 ¥ JPY</option>
+                                    <option value="NZD">🇳🇿 NZ$ NZD</option>
+                                    <option value="SAR">🇸🇦 ر.س SAR</option>
+                                    <option value="HKD">🇭🇰 HK$ HKD</option>
+                                    <option value="THB">🇹🇭 ฿ THB</option>
+                                    <option value="MYR">🇲🇾 RM MYR</option>
+                                    <option value="CNY">🇨🇳 ¥ CNY</option>
+                                    <option value="ZAR">🇿🇦 R ZAR</option>
                                 </select>
                             </div>
                         </div>
