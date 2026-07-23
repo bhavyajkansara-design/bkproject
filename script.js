@@ -394,10 +394,66 @@ const initMobileMenu = () => {
     });
 };
 
+// 7. Interactive Student Tuition Calculator & Remittance Checklist Accordion
+const initStudentSection = () => {
+    const countrySelect = document.getElementById('student-country');
+    const rangeInput = document.getElementById('student-amount-range');
+    const currLabel = document.getElementById('student-curr-label');
+    const finwaveCost = document.getElementById('student-finwave-cost');
+    const bankCost = document.getElementById('student-bank-cost');
+    const totalSavings = document.getElementById('student-total-savings');
+
+    const ratesToINR = {
+        USD: { rate: 83.50, symbol: '$', name: 'USD' },
+        GBP: { rate: 106.43, symbol: '£', name: 'GBP' },
+        CAD: { rate: 61.85, symbol: 'C$', name: 'CAD' },
+        AUD: { rate: 54.22, symbol: 'A$', name: 'AUD' },
+        EUR: { rate: 91.40, symbol: '€', name: 'EUR' }
+    };
+
+    const updateStudentCalc = () => {
+        if (!countrySelect || !rangeInput) return;
+        const curr = countrySelect.value;
+        const amount = parseFloat(rangeInput.value) || 0;
+        const data = ratesToINR[curr] || ratesToINR['USD'];
+
+        if (currLabel) currLabel.textContent = `${data.symbol} ${amount.toLocaleString()}`;
+
+        // Finwave zero-margin rate vs Traditional Bank (~3.5% markup + fixed fees)
+        const finwaveTotal = amount * data.rate;
+        const bankTotal = (amount * data.rate * 1.035) + 2500;
+        const savings = bankTotal - finwaveTotal;
+
+        if (finwaveCost) finwaveCost.textContent = `₹ ${Math.round(finwaveTotal).toLocaleString()}`;
+        if (bankCost) bankCost.textContent = `₹ ${Math.round(bankTotal).toLocaleString()}`;
+        if (totalSavings) totalSavings.textContent = `₹ ${Math.round(savings).toLocaleString()}`;
+    };
+
+    if (countrySelect && rangeInput) {
+        countrySelect.addEventListener('change', updateStudentCalc);
+        rangeInput.addEventListener('input', updateStudentCalc);
+        updateStudentCalc();
+    }
+
+    // Interactive Checklist Accordion
+    const checklistItems = document.querySelectorAll('.interactive-checklist-item');
+    checklistItems.forEach(item => {
+        const header = item.querySelector('.chk-header');
+        if (header) {
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                checklistItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        }
+    });
+};
+
 // Bootstrap
 window.addEventListener('DOMContentLoaded', () => {
     initLoader();
     initDashboard();
     initMobileMenu();
+    initStudentSection();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 });
